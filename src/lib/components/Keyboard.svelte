@@ -1,10 +1,6 @@
 <script lang="ts">
-	import {
-		type Note,
-		chromaticRange,
-		notePitchClass
-	} from '$lib/notes';
-	import {playablePitchClasses} from '$lib/stores';
+	import {type Note, chromaticRange} from '$lib/notes';
+	import Pad from './Pad.svelte';
 
 	export let firstNote: Note = 'C2';
 	export let lastNote: Note = 'C6';
@@ -13,15 +9,7 @@
 <ul class="keyboard">
 	{#each chromaticRange(firstNote, lastNote) as note}
 		<li>
-			<button
-				class:sharp={note.includes('#')}
-				class:scale={$playablePitchClasses.includes(
-					notePitchClass(note)
-				)}
-				data-note={note}
-			>
-				{note}
-			</button>
+			<Pad {note} isInverted={note.includes('#')} />
 		</li>
 	{/each}
 </ul>
@@ -31,13 +19,5 @@
 		display: flex;
 		flex-direction: row;
 		list-style: none;
-	}
-
-	.sharp {
-		filter: invert(1);
-	}
-
-	.scale {
-		background: red;
 	}
 </style>

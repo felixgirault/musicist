@@ -1,14 +1,8 @@
 <script lang="ts">
 	import {range, reverse} from '$lib/arrays';
-	import {
-		chromaticRange,
-		notePitchClass,
-		transposeNote
-	} from '$lib/notes';
-	import {
-		playablePitchClasses,
-		stringsTuning
-	} from '$lib/stores';
+	import {chromaticRange, transposeNote} from '$lib/notes';
+	import {stringsTuning} from '$lib/stores';
+	import Pad from './Pad.svelte';
 
 	export let fretCount = 24;
 
@@ -36,23 +30,10 @@
 						this={index === 0 ? 'th' : 'td'}
 						scope={index === 0 ? 'row' : null}
 					>
-						<button
-							class:scale={$playablePitchClasses.includes(
-								notePitchClass(note)
-							)}
-							data-note={note}
-						>
-							{note}
-						</button>
+						<Pad {note} />
 					</svelte:element>
 				{/each}
 			</tr>
 		{/each}
 	</tbody>
 </table>
-
-<style>
-	.scale {
-		background: red;
-	}
-</style>
