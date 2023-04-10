@@ -33,3 +33,8 @@ export const sortBy = <T, K extends keyof T>(
 	key: K,
 	compare: (a: T[K], b: T[K]) => number
 ) => sort(array, (a, b) => compare(a[key], b[key]));
+
+export const range = (count: number, start = 0) =>
+	[...Array(count).keys()].map((i) => start + i);
+
+export const reverse = <T>(array: T[]) => [...array].reverse();

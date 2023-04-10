@@ -1,7 +1,9 @@
+import {fromSemitones} from '@tonaljs/interval';
 import {midiToNoteName} from '@tonaljs/midi';
 import {
 	get,
 	pitchClass as tonalPitchClass,
+	transpose,
 	transposeFrom
 } from '@tonaljs/note';
 import {Range} from '@tonaljs/tonal';
@@ -64,6 +66,9 @@ export const transposeFromPitchClass = (
 	return (interval: string) =>
 		simplifyPitchClass(transpose(interval) as PitchClass);
 };
+
+export const transposeNote = (note: Note, semitones: number) =>
+	transpose(note, fromSemitones(semitones)) as Note;
 
 export const chromaticRange = (first: Note, last: Note) =>
 	Range.chromatic([first, last], {sharps: true}) as Note[];

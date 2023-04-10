@@ -51,3 +51,12 @@ export const playablePitchClasses = derived(
 	([$scale, $root]) =>
 		$scale ? scalePitchClasses($scale, $root) : []
 );
+
+export const stringsTuning = writable<Note[]>([
+	'E2',
+	'A2',
+	'D3',
+	'G3',
+	'B3',
+	'E4'
+]);
