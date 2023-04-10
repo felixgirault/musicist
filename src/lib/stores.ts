@@ -1,6 +1,6 @@
 import {readonly, writable} from 'svelte/store';
 import {withValue, withoutValue} from './arrays';
-import type {Note} from './types';
+import type {Note} from './notes';
 
 const playableNotesStore = () => {
 	const notes = writable<Note[]>([]);

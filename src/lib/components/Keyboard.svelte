@@ -1,7 +1,6 @@
 <script lang="ts">
-	import {chromaticRange} from '$lib/notes';
+	import {type Note, chromaticRange} from '$lib/notes';
 	import {playedNotes} from '$lib/stores';
-	import type {Note} from '../types';
 
 	export let firstNote: Note = 'C2';
 	export let lastNote: Note = 'C6';
