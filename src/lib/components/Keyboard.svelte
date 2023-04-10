@@ -1,6 +1,10 @@
 <script lang="ts">
-	import {type Note, chromaticRange} from '$lib/notes';
-	import {playedNotes} from '$lib/stores';
+	import {
+		type Note,
+		chromaticRange,
+		notePitchClass
+	} from '$lib/notes';
+	import {playablePitchClasses, playedNotes} from '$lib/stores';
 
 	export let firstNote: Note = 'C2';
 	export let lastNote: Note = 'C6';
@@ -41,6 +45,9 @@
 		<li>
 			<button
 				class:sharp={note.includes('#')}
+				class:scale={$playablePitchClasses.includes(
+					notePitchClass(note)
+				)}
 				data-note={note}
 			>
 				{note}
@@ -58,5 +65,9 @@
 
 	.sharp {
 		filter: invert(1);
+	}
+
+	.scale {
+		background: red;
 	}
 </style>

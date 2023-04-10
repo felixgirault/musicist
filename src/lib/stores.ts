@@ -7,7 +7,8 @@ import {
 	writable
 } from 'svelte/store';
 import {withValue, withoutValue} from './arrays';
-import type {Note} from './notes';
+import {type Note, type PitchClass, PitchClasses} from './notes';
+import {type Scale, scalePitchClasses} from './scales';
 
 const diffStore = <T>(store: Readable<T[]>) => {
 	let previous = get(store);
@@ -40,3 +41,13 @@ const playableNotesStore = () => {
 };
 
 export const playedNotes = playableNotesStore();
+export const rootPitchClass = writable<PitchClass>(
+	PitchClasses[0]
+);
+
+export const scale = writable<Scale | undefined>();
+export const playablePitchClasses = derived(
+	[scale, rootPitchClass],
+	([$scale, $root]) =>
+		$scale ? scalePitchClasses($scale, $root) : []
+);
