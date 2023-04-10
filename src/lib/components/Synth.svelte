@@ -1,17 +1,11 @@
 <script lang="ts">
-	import type {DiffData} from 'fast-array-diff';
+	import {diff as fastDiff} from 'fast-array-diff';
 	import {onMount} from 'svelte';
 	import {PolySynth, Synth} from 'tone';
-	import type {Note} from '$lib/notes';
 	import {playedNotes} from '$lib/stores';
 
-	const {diff} = playedNotes;
+	let previousNotes = $playedNotes;
 	let synth: PolySynth;
-
-	const triggerNotes = (diff: DiffData<Note>) => {
-		synth?.triggerAttack(diff.added);
-		synth?.triggerRelease(diff.removed);
-	};
 
 	onMount(() => {
 		synth = new PolySynth(Synth, {
@@ -21,5 +15,10 @@
 		}).toDestination();
 	});
 
-	$: triggerNotes($diff);
+	$: {
+		const diff = fastDiff(previousNotes, $playedNotes);
+		synth?.triggerAttack(diff.added);
+		synth?.triggerRelease(diff.removed);
+		previousNotes = $playedNotes;
+	}
 </script>

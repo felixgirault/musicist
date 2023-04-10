@@ -1,28 +1,10 @@
-import {diff} from 'fast-array-diff';
-import {
-	type Readable,
-	derived,
-	get,
-	readonly,
-	writable
-} from 'svelte/store';
+import {derived, readonly, writable} from 'svelte/store';
 import {withValue, withoutValue} from './arrays';
 import {type Note, type PitchClass, PitchClasses} from './notes';
 import {type Scale, scalePitchClasses} from './scales';
 
-const diffStore = <T>(store: Readable<T[]>) => {
-	let previous = get(store);
-
-	return derived(store, ($values) => {
-		const d = diff(previous, $values);
-		previous = $values;
-		return d;
-	});
-};
-
 const playableNotesStore = () => {
 	const notes = writable<Note[]>([]);
-	const diff = diffStore(notes);
 
 	const start = (note: Note) => {
 		notes.update(($notes) => withValue($notes, note));
@@ -33,8 +15,7 @@ const playableNotesStore = () => {
 	};
 
 	return {
-		notes: readonly(notes),
-		diff,
+		...readonly(notes),
 		start,
 		stop
 	};

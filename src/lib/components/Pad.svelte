@@ -4,8 +4,6 @@
 
 	export let note: Note;
 	export let isInverted = false;
-
-	const {notes} = playedNotes;
 </script>
 
 <button
@@ -13,7 +11,7 @@
 	class:scale={$playablePitchClasses.includes(
 		notePitchClass(note)
 	)}
-	class:pressed={$notes.includes(note)}
+	class:pressed={$playedNotes.includes(note)}
 	data-note={note}
 >
 	{note}
