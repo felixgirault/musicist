@@ -35,11 +35,15 @@
 					<svelte:element
 						this={index === 0 ? 'th' : 'td'}
 						scope={index === 0 ? 'row' : null}
-						class:scale={$playablePitchClasses.includes(
-							notePitchClass(note)
-						)}
 					>
-						{note}
+						<button
+							class:scale={$playablePitchClasses.includes(
+								notePitchClass(note)
+							)}
+							data-note={note}
+						>
+							{note}
+						</button>
 					</svelte:element>
 				{/each}
 			</tr>
