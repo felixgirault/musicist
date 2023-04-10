@@ -19,6 +19,7 @@
 		"@trivago/prettier-plugin-sort-imports": "^4.1.1",
 		"@types/webmidi": "^2.0.7",
 		"@vitejs/plugin-basic-ssl": "^1.0.1",
+		"fast-array-diff": "^1.1.0",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.0",
 		"svelte": "^3.54.0",
