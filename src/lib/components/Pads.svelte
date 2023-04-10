@@ -2,6 +2,18 @@
 	import type {Note} from '$lib/notes';
 	import {playedNotes} from '$lib/stores';
 
+	// In case the user started selecting text, deselects it
+	// so it doesn't mess with the pads UI.
+	const deselectCurrentText = () => {
+		let selection = window.getSelection();
+
+		if (selection && selection.rangeCount > 0) {
+			for (let i = 0; i < selection.rangeCount; i++) {
+				selection.removeRange(selection.getRangeAt(i));
+			}
+		}
+	};
+
 	const handleStart = ({target, buttons}: MouseEvent) => {
 		if (buttons !== 1) {
 			return;
@@ -11,6 +23,7 @@
 		const note = element?.dataset?.note;
 
 		if (note) {
+			deselectCurrentText();
 			playedNotes.start(note as Note);
 		}
 	};
