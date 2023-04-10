@@ -13,27 +13,35 @@
 	$: reversedStrings = reverse(strings);
 </script>
 
-<table>
-	<thead>
-		<tr>
-			{#each range(fretCount + 1) as i}
-				<th scope="col">{i}</th>
-			{/each}
-		</tr>
-	</thead>
-
-	<tbody>
-		{#each reversedStrings as string}
+<div class="container">
+	<table>
+		<thead>
 			<tr>
-				{#each string as note, index}
-					<svelte:element
-						this={index === 0 ? 'th' : 'td'}
-						scope={index === 0 ? 'row' : null}
-					>
-						<Pad {note} />
-					</svelte:element>
+				{#each range(fretCount + 1) as i}
+					<th scope="col">{i}</th>
 				{/each}
 			</tr>
-		{/each}
-	</tbody>
-</table>
+		</thead>
+
+		<tbody>
+			{#each reversedStrings as string}
+				<tr>
+					{#each string as note, index}
+						<svelte:element
+							this={index === 0 ? 'th' : 'td'}
+							scope={index === 0 ? 'row' : null}
+						>
+							<Pad {note} />
+						</svelte:element>
+					{/each}
+				</tr>
+			{/each}
+		</tbody>
+	</table>
+</div>
+
+<style>
+	.container {
+		overflow-x: hidden;
+	}
+</style>
