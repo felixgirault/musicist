@@ -20,6 +20,7 @@
 	.container {
 		display: flex;
 		justify-content: center;
+		height: 100%;
 		overflow-x: hidden;
 	}
 
@@ -28,7 +29,7 @@
 		flex-direction: row;
 		margin: 0;
 		padding: 0;
-		height: 12rem;
+		height: 100%;
 		list-style: none;
 	}
 

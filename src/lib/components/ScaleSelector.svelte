@@ -16,46 +16,38 @@
 	$: $scale = indexedScales?.[scaleChroma];
 </script>
 
-<div class="container">
-	<label for="ScaleSelector-root">Root</label>
+<label for="ScaleSelector-root">Root</label>
 
-	<select
-		id="ScaleSelector-root"
-		name="root"
-		bind:value={$rootPitchClass}
-	>
-		{#each PitchClasses as pitchClass}
-			<option value={pitchClass}>{pitchClass}</option>
-		{/each}
-	</select>
+<select
+	id="ScaleSelector-root"
+	name="root"
+	bind:value={$rootPitchClass}
+>
+	{#each PitchClasses as pitchClass}
+		<option value={pitchClass}>{pitchClass}</option>
+	{/each}
+</select>
 
-	<label for="ScaleSelector-chroma">Scale</label>
+<label for="ScaleSelector-chroma">Scale</label>
 
-	<select
-		id="ScaleSelector-chroma"
-		name="chroma"
-		bind:value={scaleChroma}
-	>
-		<option value="">None</option>
+<select
+	id="ScaleSelector-chroma"
+	name="chroma"
+	bind:value={scaleChroma}
+>
+	<option value="">None</option>
 
-		{#each sortedScales as { name, aliases, chroma }}
-			<option value={chroma}>
-				{name}
-				{#if aliases.length}
-					({aliases.join(', ')})
-				{/if}
-			</option>
-		{/each}
-	</select>
-</div>
+	{#each sortedScales as { name, aliases, chroma }}
+		<option value={chroma}>
+			{name}
+			{#if aliases.length}
+				({aliases.join(', ')})
+			{/if}
+		</option>
+	{/each}
+</select>
 
 <style>
-	.container {
-		display: flex;
-		align-items: center;
-		gap: 1ch;
-	}
-
 	#ScaleSelector-chroma {
 		min-width: 10ch;
 	}

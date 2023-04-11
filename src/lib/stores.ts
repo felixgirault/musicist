@@ -1,5 +1,6 @@
 import {derived, readonly, writable} from 'svelte/store';
 import {withValue, withoutValue} from './arrays';
+import type {Instrument} from './instruments';
 import {type Note, type PitchClass, PitchClasses} from './notes';
 import {type Scale, scalePitchClasses} from './scales';
 
@@ -41,3 +42,5 @@ export const stringsTuning = writable<Note[]>([
 	'B3',
 	'E4'
 ]);
+
+export const instrument = writable<Instrument>('keyboard');

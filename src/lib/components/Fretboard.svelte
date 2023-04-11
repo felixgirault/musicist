@@ -4,7 +4,7 @@
 	import {stringsTuning} from '$lib/stores';
 	import Pad from './Pad.svelte';
 
-	export let fretCount = 24;
+	export let fretCount = 17;
 
 	$: strings = $stringsTuning.map((first) =>
 		chromaticRange(first, transposeNote(first, fretCount))
@@ -42,7 +42,17 @@
 
 <style>
 	.container {
+		height: 100%;
 		overflow-x: hidden;
+	}
+
+	table {
+		height: 100%;
+	}
+
+	table :global(button) {
+		width: 100%;
+		height: 100%;
 	}
 
 	[scope='col'] {
