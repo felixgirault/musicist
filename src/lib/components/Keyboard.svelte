@@ -26,7 +26,14 @@
 	.keyboard {
 		display: flex;
 		flex-direction: row;
+		margin: 0;
 		padding: 0;
+		height: 12rem;
 		list-style: none;
+	}
+
+	li :global(button) {
+		width: 4ch;
+		height: 100%;
 	}
 </style>

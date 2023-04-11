@@ -1,0 +1,79 @@
+:root {
+	/* @see https://schemist.fglt.fr?preset=1@b@7826x50,7926x14,7a26x1e,7b26x5a,7d26a,7e26x5a,7f26x1e,7x1026x50,7x1126x3c,!4c26a45678,!4526x2801239,!01223a@419472,clr,,color,s,Primary,amount,l,$,On%20$,$%20container,On%20$%20container,Desaturated%20$,Surface,On%20surface,Surface%20variant,On%20surface%20variant,Outline */
+	--primary: #a4d3bc;
+	--on-primary: #1d342a;
+	--primary-container: #2f4d3f;
+	--on-primary-container: #ceebdc;
+	--surface: #131715;
+	--on-surface: #dee4e1;
+	--surface-variant: #3f4844;
+	--on-surface-variant: #bfcac4;
+	--outline: #87958e;
+
+	--interactive-surface: var(--surface-variant);
+	--on-interactive-surface: var(--on-surface-primary);
+	--interactive-surface--active: var(--primary);
+	--on-interactive-surface--active: var(--on-primary);
+
+	--inverse-interactive-surface: var(--surface);
+	--on-inverse-interactive-surface: var(--on-surface);
+
+	--font-mono: Menlo, Consolas, Monaco, Liberation Mono,
+		Lucida Console, monospace;
+	--font-size-small: 0.7rem;
+	--line-height: 1.3;
+
+	--radius: 0.3rem;
+
+	--spacing-1: 1rem;
+	--spacing-0_5: 0.5rem;
+	--spacing-0_25: 0.25rem;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-1);
+	margin: 0;
+	padding: var(--spacing-1);
+	background: var(--surface);
+	color: var(--on-surface);
+	line-height: var(--line-height);
+	font-family: var(--font-mono);
+}
+
+button {
+	--button-background: var(--interactive-surface);
+	--button-color: var(--on-interactive-surface);
+	border: 0;
+	border-radius: var(--radius);
+	padding: var(--spacing-0_25);
+	background: var(--button-background);
+	color: var(--button-color);
+	font: inherit;
+}
+
+button.inverted {
+	--button-background: var(--inverse-interactive-surface);
+	--button-color: var(--on-inverse-interactive-surface);
+}
+
+button[aria-pressed='true'] {
+	--button-background: var(
+		--interactive-surface--active
+	) !important;
+	--button-color: var(
+		--on-interactive-surface--active
+	) !important;
+}
+
+input,
+select {
+	box-shadow: inset 0 0 0 1px var(--outline);
+	border: none;
+	border-radius: var(--radius);
+	padding: var(--spacing-0_25);
+	background: var(--interactive-surface);
+	color: var(--on-interactive-surface);
+	font: inherit;
+}

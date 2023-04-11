@@ -44,4 +44,8 @@
 	.container {
 		overflow-x: hidden;
 	}
+
+	[scope='col'] {
+		font-size: var(--font-size-small);
+	}
 </style>

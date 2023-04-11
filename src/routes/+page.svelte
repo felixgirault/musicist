@@ -6,6 +6,7 @@
 	import Pads from '$lib/components/Pads.svelte';
 	import ScaleSelector from '$lib/components/ScaleSelector.svelte';
 	import Synth from '$lib/components/Synth.svelte';
+	import '../app.css';
 </script>
 
 <AudioContext />
