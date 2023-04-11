@@ -14,6 +14,7 @@
 
 <button
 	class:inverted={isInverted}
+	class:sharp={pitchClass.includes('#')}
 	class:root={$rootPitchClass === pitchClass}
 	class:scale={$playablePitchClasses.includes(pitchClass)}
 	aria-pressed={$playedNotes.includes(note)}
