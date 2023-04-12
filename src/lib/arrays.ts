@@ -38,3 +38,6 @@ export const range = (count: number, start = 0) =>
 	[...Array(count).keys()].map((i) => start + i);
 
 export const reverse = <T>(array: T[]) => [...array].reverse();
+
+export const sum = (array: number[]) =>
+	array.reduce((a, b) => a + b, 0);

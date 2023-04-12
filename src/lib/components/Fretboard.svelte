@@ -1,5 +1,6 @@
 <script lang="ts">
 	import {range, reverse} from '$lib/arrays';
+	import {fretRatios} from '$lib/fretboard';
 	import {chromaticRange, transposeNote} from '$lib/notes';
 	import {stringsTuning} from '$lib/stores';
 	import Pad from './Pad.svelte';
@@ -11,6 +12,7 @@
 	);
 
 	$: reversedStrings = reverse(strings);
+	$: ratios = fretRatios(fretCount);
 </script>
 
 <div class="container">
@@ -30,6 +32,9 @@
 						<svelte:element
 							this={index === 0 ? 'th' : 'td'}
 							scope={index === 0 ? 'row' : null}
+							style={index === 0
+								? null
+								: `width: ${ratios[index - 1]}%`}
 						>
 							<Pad {note} />
 						</svelte:element>
@@ -47,6 +52,7 @@
 	}
 
 	table {
+		min-width: 100%;
 		height: 100%;
 	}
 
