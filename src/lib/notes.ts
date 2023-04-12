@@ -47,17 +47,25 @@ export const simplifyPitchClass = (pitchClass: PitchClass) => {
 	const note = get(pitchClass);
 
 	if (note.empty) {
-		return '';
+		return pitchClass;
 	}
 
 	return midiToNoteName(note.chroma, {
 		sharps: true,
 		pitchClass: true
-	});
+	}) as PitchClass;
 };
 
 export const notePitchClass = (note: Note) =>
 	simplifyPitchClass(tonalPitchClass(note) as PitchClass);
+
+export const filterNotesByPitchClasses = (
+	notes: Note[],
+	pitchClasses: PitchClass[]
+) =>
+	notes.filter((note) =>
+		pitchClasses.includes(notePitchClass(note))
+	);
 
 export const transposeFromPitchClass = (
 	pitchClass: PitchClass

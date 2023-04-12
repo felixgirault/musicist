@@ -34,6 +34,8 @@ export const playablePitchClasses = derived(
 		$scale ? scalePitchClasses($scale, $root) : []
 );
 
+export const areOutOfScaleNotesMuted = writable(false);
+
 export const stringsTuning = writable<Note[]>([
 	'E2',
 	'A2',

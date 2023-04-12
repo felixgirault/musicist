@@ -7,6 +7,7 @@
 	import Pads from '$lib/components/Pads.svelte';
 	import ScaleSelector from '$lib/components/ScaleSelector.svelte';
 	import Synth from '$lib/components/Synth.svelte';
+	import SynthOptions from '$lib/components/SynthOptions.svelte';
 	import Toolbar from '$lib/components/Toolbar.svelte';
 	import {instrument} from '$lib/stores';
 	import '../app.css';
@@ -14,6 +15,7 @@
 
 <Toolbar>
 	<ScaleSelector />
+	<SynthOptions />
 	<InstrumentSelector />
 </Toolbar>
 
