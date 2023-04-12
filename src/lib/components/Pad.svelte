@@ -7,12 +7,14 @@
 	} from '$lib/stores';
 
 	export let note: Note;
+	export let isFlipped = false;
 	export let isInverted = false;
 
 	$: pitchClass = notePitchClass(note);
 </script>
 
 <button
+	class:flipped={isFlipped}
 	class:inverted={isInverted}
 	class:sharp={pitchClass.includes('#')}
 	class:root={$rootPitchClass === pitchClass}
@@ -33,6 +35,15 @@
 			0 0 0 1px var(--surface);
 		background-image: linear-gradient(
 			to bottom,
+			var(--scale-note-background) 0 var(--spacing-0_5),
+			transparent var(--spacing-0_5) 100%
+		);
+	}
+
+	button.flipped {
+		padding-right: 0.75rem;
+		background-image: linear-gradient(
+			to left,
 			var(--scale-note-background) 0 var(--spacing-0_5),
 			transparent var(--spacing-0_5) 100%
 		);

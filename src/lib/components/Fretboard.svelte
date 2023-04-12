@@ -36,7 +36,7 @@
 								? null
 								: `width: ${ratios[index - 1]}%`}
 						>
-							<Pad {note} />
+							<Pad isFlipped {note} />
 						</svelte:element>
 					{/each}
 				</tr>
