@@ -28,25 +28,23 @@
 <style>
 	button {
 		--scale-note-background: var(--outline);
+		--scale-note-size: var(--spacing-0_5);
+		--scale-note-direction: to bottom;
 		display: inline-flex;
 		align-items: flex-end;
 		justify-content: right;
 		box-shadow: inset 0 0 0 1px var(--surface),
 			0 0 0 1px var(--surface);
 		background-image: linear-gradient(
-			to bottom,
-			var(--scale-note-background) 0 var(--spacing-0_5),
-			transparent var(--spacing-0_5) 100%
+			var(--scale-note-direction),
+			var(--scale-note-background) 0 var(--scale-note-size),
+			transparent var(--scale-note-size) 100%
 		);
 	}
 
 	button.flipped {
+		--scale-note-direction: to left;
 		padding-right: 0.75rem;
-		background-image: linear-gradient(
-			to left,
-			var(--scale-note-background) 0 var(--spacing-0_5),
-			transparent var(--spacing-0_5) 100%
-		);
 	}
 
 	button span {
