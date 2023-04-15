@@ -9,6 +9,7 @@
 	export let note: Note;
 	export let isFlipped = false;
 	export let isInverted = false;
+	export let isHighlighted = false;
 
 	$: pitchClass = notePitchClass(note);
 </script>
@@ -19,6 +20,7 @@
 	class:sharp={pitchClass.includes('#')}
 	class:root={$rootPitchClass === pitchClass}
 	class:scale={$playablePitchClasses.includes(pitchClass)}
+	class:highlighted={isHighlighted}
 	aria-pressed={$playedNotes.includes(note)}
 	data-note={note}
 >
@@ -73,8 +75,21 @@
 		font-weight: bolder;
 	}
 
+	.root.highlighted span {
+		--note-name-background: var(--complementary);
+		--note-name-color: var(--button-background);
+	}
+
 	.scale {
 		--scale-note-background: rgba(var(--primary-rgb), 0.2);
 		--scale-note-indicator-background: var(--primary);
+	}
+
+	.highlighted {
+		--scale-note-background: rgba(
+			var(--complementary-rgb),
+			0.3
+		);
+		--scale-note-indicator-background: var(--complementary);
 	}
 </style>

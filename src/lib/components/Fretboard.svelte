@@ -39,7 +39,7 @@
 						>
 							<Pad
 								isFlipped
-								isInverted={$playableFrets?.[
+								isHighlighted={$playableFrets?.[
 									reversedStrings.length -
 										1 -
 										stringIndex
