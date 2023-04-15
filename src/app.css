@@ -1,6 +1,7 @@
 :root {
 	/* @see https://schemist.fglt.fr?preset=1@b@7826x50,7926x14,7a26x1e,7b26x5a,7d26a,7e26x5a,7f26x1e,7x1026x50,7x1126x3c,!4c26a45678,!4526x2801239,!01223a@419472,clr,,color,s,Primary,amount,l,$,On%20$,$%20container,On%20$%20container,Desaturated%20$,Surface,On%20surface,Surface%20variant,On%20surface%20variant,Outline */
 	--primary: #a4d3bc;
+	--primary-rgb: 164, 211, 188;
 	--on-primary: #1d342a;
 	--primary-container: #2f4d3f;
 	--on-primary-container: #ceebdc;
