@@ -6,25 +6,16 @@
 	export let lastNote: Note = 'C6';
 </script>
 
-<div class="container">
-	<ul class="keyboard">
-		{#each chromaticRange(firstNote, lastNote) as note}
-			<li>
-				<Pad {note} isInverted={note.includes('#')} />
-			</li>
-		{/each}
-	</ul>
-</div>
+<ul>
+	{#each chromaticRange(firstNote, lastNote) as note}
+		<li>
+			<Pad {note} isInverted={note.includes('#')} />
+		</li>
+	{/each}
+</ul>
 
 <style>
-	.container {
-		display: flex;
-		justify-content: center;
-		height: 100%;
-		overflow-x: hidden;
-	}
-
-	.keyboard {
+	ul {
 		--white-key-size: 5ch;
 		--black-key-size: calc(2 / 3 * var(--white-key-size));
 		--black-key-half-size: calc(var(--black-key-size) / 2);

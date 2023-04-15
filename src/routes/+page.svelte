@@ -3,7 +3,8 @@
 	import Fretboard from '$lib/components/Fretboard.svelte';
 	import FretboardOptions from '$lib/components/FretboardOptions.svelte';
 	import InstrumentSelector from '$lib/components/InstrumentSelector.svelte';
-	import Keyboard from '$lib/components/Keyboard.svelte';
+	import KeyboardOptions from '$lib/components/KeyboardOptions.svelte';
+	import Keyboards from '$lib/components/Keyboards.svelte';
 	import MidiInput from '$lib/components/MidiInput.svelte';
 	import Pads from '$lib/components/Pads.svelte';
 	import ScaleSelector from '$lib/components/ScaleSelector.svelte';
@@ -19,14 +20,16 @@
 	<SynthOptions />
 	<InstrumentSelector />
 
-	{#if $instrument === 'fretboard'}
+	{#if $instrument === 'keyboard'}
+		<KeyboardOptions />
+	{:else if $instrument === 'fretboard'}
 		<FretboardOptions />
 	{/if}
 </Toolbar>
 
 <Pads>
 	<svelte:component
-		this={$instrument === 'keyboard' ? Keyboard : Fretboard}
+		this={$instrument === 'keyboard' ? Keyboards : Fretboard}
 	/>
 </Pads>
 

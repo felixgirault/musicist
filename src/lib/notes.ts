@@ -25,6 +25,7 @@ export type PitchClass =
 export type Octave = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 export type Note = `${PitchClass}${Octave}`;
+export type NoteRange = [from: Note, to: Note];
 
 export const PitchClasses: readonly PitchClass[] = [
 	'C',
