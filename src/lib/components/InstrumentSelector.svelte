@@ -3,14 +3,16 @@
 	import {instrument} from '$lib/stores';
 </script>
 
-<label for="InstrumentSelector-type">Instrument</label>
+<div>
+	<label for="InstrumentSelector-type">Instrument</label>
 
-<select
-	id="InstrumentSelector-type"
-	name="type"
-	bind:value={$instrument}
->
-	{#each Object.entries(InstrumentNames) as [type, name]}
-		<option value={type}>{name}</option>
-	{/each}
-</select>
+	<select
+		id="InstrumentSelector-type"
+		name="type"
+		bind:value={$instrument}
+	>
+		{#each Object.entries(InstrumentNames) as [type, name]}
+			<option value={type}>{name}</option>
+		{/each}
+	</select>
+</div>

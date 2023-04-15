@@ -6,6 +6,6 @@
 	.container {
 		display: flex;
 		align-items: center;
-		gap: 1ch;
+		gap: var(--spacing-1);
 	}
 </style>
