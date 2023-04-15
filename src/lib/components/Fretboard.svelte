@@ -2,41 +2,50 @@
 	import {range, reverse} from '$lib/arrays';
 	import {fretRatios} from '$lib/fretboard';
 	import {chromaticRange, transposeNote} from '$lib/notes';
-	import {stringsTuning} from '$lib/stores';
+	import {fretboard, playableFrets} from '$lib/stores';
 	import Pad from './Pad.svelte';
 
-	export let fretCount = 17;
-
-	$: strings = $stringsTuning.map((first) =>
-		chromaticRange(first, transposeNote(first, fretCount))
+	$: strings = $fretboard.tuning.map((first) =>
+		chromaticRange(
+			first,
+			transposeNote(first, $fretboard.fretCount)
+		)
 	);
 
 	$: reversedStrings = reverse(strings);
-	$: ratios = fretRatios(fretCount);
+	$: ratios = fretRatios($fretboard.fretCount);
 </script>
 
 <div class="container">
 	<table>
 		<thead>
 			<tr>
-				{#each range(fretCount + 1) as i}
+				{#each range($fretboard.fretCount + 1) as i}
 					<th scope="col">{i}</th>
 				{/each}
 			</tr>
 		</thead>
 
 		<tbody>
-			{#each reversedStrings as string}
+			{#each reversedStrings as string, stringIndex}
 				<tr>
-					{#each string as note, index}
+					{#each string as note, fretIndex}
 						<svelte:element
-							this={index === 0 ? 'th' : 'td'}
-							scope={index === 0 ? 'row' : null}
-							style={index === 0
+							this={fretIndex === 0 ? 'th' : 'td'}
+							scope={fretIndex === 0 ? 'row' : null}
+							style={fretIndex === 0
 								? null
-								: `width: ${ratios[index - 1]}%`}
+								: `width: ${ratios[fretIndex - 1]}%`}
 						>
-							<Pad isFlipped {note} />
+							<Pad
+								isFlipped
+								isInverted={$playableFrets?.[
+									reversedStrings.length -
+										1 -
+										stringIndex
+								]?.includes(fretIndex)}
+								{note}
+							/>
 						</svelte:element>
 					{/each}
 				</tr>
