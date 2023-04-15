@@ -3,7 +3,7 @@
 </script>
 
 <div>
-	<label for="SynthOptions-mute">Mute out of scale notes</label>
+	<label for="SynthOptions-mute">Cheat</label>
 	<input
 		id="SynthOptions-mute"
 		type="checkbox"

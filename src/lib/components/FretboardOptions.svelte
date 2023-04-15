@@ -8,7 +8,7 @@
 </script>
 
 <div>
-	<label for="FretboardOptions-fretCount">Fret count</label>
+	<label for="FretboardOptions-fretCount">Frets</label>
 	<input
 		id="FretboardOptions-fretCount"
 		name="fretCount"
