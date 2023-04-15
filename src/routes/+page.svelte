@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AudioContext from '$lib/components/AudioContext.svelte';
 	import Fretboard from '$lib/components/Fretboard.svelte';
+	import FretboardOptions from '$lib/components/FretboardOptions.svelte';
 	import InstrumentSelector from '$lib/components/InstrumentSelector.svelte';
 	import Keyboard from '$lib/components/Keyboard.svelte';
 	import MidiInput from '$lib/components/MidiInput.svelte';
@@ -17,6 +18,10 @@
 	<ScaleSelector />
 	<SynthOptions />
 	<InstrumentSelector />
+
+	{#if $instrument === 'fretboard'}
+		<FretboardOptions />
+	{/if}
 </Toolbar>
 
 <Pads>

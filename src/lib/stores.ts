@@ -4,6 +4,7 @@ import {type Fretboard, fingering} from './fretboard';
 import type {Instrument} from './instruments';
 import {type Note, type PitchClass, PitchClasses} from './notes';
 import {type Scale, scalePitchClasses} from './scales';
+import {Tunings} from './tunings';
 
 const playableNotesStore = () => {
 	const notes = writable<Note[]>([]);
@@ -38,8 +39,8 @@ export const playablePitchClasses = derived(
 export const areOutOfScaleNotesMuted = writable(false);
 
 export const fretboard = writable<Fretboard>({
-	fretCount: 17,
-	tuning: ['E2', 'A2', 'D3', 'G3', 'B3', 'E4']
+	fretCount: 15,
+	tuning: Tunings.guitarStandard.tuning
 });
 
 export const playableFrets = derived(
