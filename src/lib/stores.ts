@@ -1,5 +1,6 @@
 import {derived, readonly, writable} from 'svelte/store';
 import {withValue, withoutValue} from './arrays';
+import {type Fretboard, fingering} from './fretboard';
 import type {Instrument} from './instruments';
 import {type Note, type PitchClass, PitchClasses} from './notes';
 import {type Scale, scalePitchClasses} from './scales';
@@ -36,13 +37,15 @@ export const playablePitchClasses = derived(
 
 export const areOutOfScaleNotesMuted = writable(false);
 
-export const stringsTuning = writable<Note[]>([
-	'E2',
-	'A2',
-	'D3',
-	'G3',
-	'B3',
-	'E4'
-]);
+export const fretboard = writable<Fretboard>({
+	fretCount: 17,
+	tuning: ['E2', 'A2', 'D3', 'G3', 'B3', 'E4']
+});
+
+export const playableFrets = derived(
+	[fretboard, scale, rootPitchClass],
+	([$fretboard, $scale, $root]) =>
+		$scale ? fingering($fretboard, $scale, $root) : []
+);
 
 export const instrument = writable<Instrument>('keyboard');
