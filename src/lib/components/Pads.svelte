@@ -40,7 +40,9 @@
 	};
 
 	const handleTouchStart = (event: TouchEvent) => {
-		event.preventDefault();
+		if (event.cancelable) {
+			event.preventDefault();
+		}
 
 		for (let i = 0; i < event.changedTouches.length; i++) {
 			const touch = event.changedTouches[i];
@@ -57,7 +59,9 @@
 	// @TODO Debounce this to avoid too many calls to
 	// `document.elementFromPoint()`.
 	const handleTouchMove = (event: TouchEvent) => {
-		event.preventDefault();
+		if (event.cancelable) {
+			event.preventDefault();
+		}
 
 		for (let i = 0; i < event.changedTouches.length; i++) {
 			const touch = event.changedTouches[i];
@@ -83,7 +87,9 @@
 	};
 
 	const handleTouchEnd = (event: TouchEvent) => {
-		event.preventDefault();
+		if (event.cancelable) {
+			event.preventDefault();
+		}
 
 		for (let i = 0; i < event.changedTouches.length; i++) {
 			const touch = event.changedTouches[i];
