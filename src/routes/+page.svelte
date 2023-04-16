@@ -15,6 +15,10 @@
 	import '../app.css';
 </script>
 
+<svelte:head>
+	<title>Musicist</title>
+</svelte:head>
+
 <Toolbar>
 	<ScaleSelector />
 	<SynthOptions />
