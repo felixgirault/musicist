@@ -1,19 +1,16 @@
 # Musicist
 
 An simple app to practice musical scales.
-
 [musicist.fglt.fr](https://musicist.fglt.fr/)
 
-## About
-
 Musicist allows you to visualize and interact with musical scales
-on various instrument types.
+on various instruments.
 
 Instruments can be played with a mouse, touch gestures, or via
 plugged-in MIDI devices.
 
 Selecting a scale will highlight relevant notes on your
-instrument of choice, even suggesting fingerings for fretboard
+instrument of choice, even suggesting fingerings for fretted
 instruments!
 
 ## Roadmap
