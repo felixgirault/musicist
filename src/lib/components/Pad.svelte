@@ -15,6 +15,7 @@
 </script>
 
 <button
+	class="button"
 	class:flipped={isFlipped}
 	class:inverted={isInverted}
 	class:sharp={pitchClass.includes('#')}
@@ -28,7 +29,7 @@
 </button>
 
 <style>
-	button {
+	.button {
 		--note-name-background: transparent;
 		--note-name-color: var(--button-color);
 		--scale-note-background: transparent;
@@ -53,12 +54,12 @@
 			linear-gradient(0deg, var(--button-background) 0 100%);
 	}
 
-	button.flipped {
+	.button.flipped {
 		--scale-note-direction: to left;
 		padding-right: 0.75rem;
 	}
 
-	button span {
+	.button span {
 		pointer-events: none;
 		outline: var(--spacing-0_25) solid
 			var(--note-name-background);

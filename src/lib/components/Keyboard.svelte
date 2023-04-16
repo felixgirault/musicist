@@ -49,7 +49,7 @@
 		position: relative;
 	}
 
-	li :global(button) {
+	li :global(.button) {
 		width: var(--white-key-size);
 		height: 100%;
 	}

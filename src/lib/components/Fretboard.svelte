@@ -65,7 +65,7 @@
 		height: 100%;
 	}
 
-	table :global(button) {
+	table :global(.button) {
 		width: 100%;
 		height: 100%;
 	}

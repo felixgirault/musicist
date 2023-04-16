@@ -55,7 +55,17 @@ body {
 	font-family: var(--font-mono);
 }
 
-button {
+.hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+.button {
 	--button-background: var(--interactive-surface);
 	--button-color: var(--on-interactive-surface);
 	border: 0;
@@ -66,12 +76,13 @@ button {
 	font: inherit;
 }
 
-button.inverted {
+.button.inverted {
 	--button-background: var(--inverse-interactive-surface);
 	--button-color: var(--on-inverse-interactive-surface);
 }
 
-button[aria-pressed='true'] {
+.button[aria-pressed='true'],
+.button-trigger:checked + .button {
 	--button-background: var(
 		--interactive-surface--active
 	) !important;
@@ -80,7 +91,14 @@ button[aria-pressed='true'] {
 	) !important;
 }
 
-label {
+fieldset {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+label,
+legend {
 	display: block;
 }
 
