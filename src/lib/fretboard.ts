@@ -21,7 +21,7 @@ const FretRatio = 1.055;
 // Builds a list of fret sizes as percentages, so they all
 // add up to 100%.
 export const fretRatios = (count: number) => {
-	const ratios = Array(count)
+	const ratios = Array<number>(count)
 		.fill(0)
 		.reduce(
 			(r) => r.concat((r?.[r.length - 1] ?? 1) / FretRatio),
