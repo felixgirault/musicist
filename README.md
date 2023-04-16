@@ -1,44 +1,34 @@
-# create-svelte
+# Musicist
 
-Everything you need to build a Svelte project, powered by
-[`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+An simple app to practice musical scales.
 
-## Creating a project
+[musicist.fglt.fr](https://musicist.fglt.fr/)
 
-If you're seeing this, you've probably already done this step.
-Congrats!
+## About
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Musicist allows you to visualize and interact with musical scales
+on various instrument types.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Instruments can be played with a mouse, touch gestures, or via
+plugged-in MIDI devices.
 
-## Developing
+Selecting a scale will highlight relevant notes on your
+instrument of choice, even suggesting fingerings for fretboard
+instruments!
 
-Once you've created a project and installed dependencies with
-`npm install` (or `pnpm install` or `yarn`), start a development
-server:
+## Roadmap
 
-```bash
-npm run dev
+As this was put together in a short time for a hackathon, there
+is still much room for improvement:
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an
-> [adapter](https://kit.svelte.dev/docs/adapters) for your target
-> environment.
+-  [ ] Improving accessibility
+-  [ ] Improving fingering suggestion
+   -  [ ] Allowing selection of a preferred fretboard zone
+   -  [ ] Handling edge cases where the fingering could be more
+          comfortable
+-  [ ] Suggesting scales by analyzing played notes
+-  [ ] Improving devices support (for now, the app is mostly
+       optimized for small mobile devices in landscape
+       orientation)
+-  [ ] Improving in-app documentation/affordance
+-  [ ] Adding translations
