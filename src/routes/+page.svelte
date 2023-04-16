@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Announcements from '$lib/components/Announcements.svelte';
 	import AudioContext from '$lib/components/AudioContext.svelte';
 	import Fretboard from '$lib/components/Fretboard.svelte';
 	import FretboardOptions from '$lib/components/FretboardOptions.svelte';
@@ -30,6 +31,8 @@
 		<FretboardOptions />
 	{/if}
 </Toolbar>
+
+<Announcements />
 
 <Pads>
 	<svelte:component
