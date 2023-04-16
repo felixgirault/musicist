@@ -1,0 +1,23 @@
+{
+	"id": "musicist",
+	"name": "Musicist",
+	"short_name": "Musicist",
+	"description": "Musical scales practice",
+	"start_url": "/",
+	"theme_color": "#a4d3bc",
+	"background_color": "#131715",
+	"display": "standalone",
+	"orientation": "landscape",
+	"icons": [
+		{
+			"src": "icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}
